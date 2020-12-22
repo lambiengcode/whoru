@@ -18,17 +18,17 @@ class _ChatPageState extends State<ChatPage> {
     final user = Provider.of<User>(context);
     return Scaffold(
       appBar: AppBar(
-        elevation: 2.0,
+        elevation: 2.5,
         brightness: ThemeProvider.of(context).brightness,
         centerTitle: false,
         title: Text(
           "WhoRU",
           style: TextStyle(
-            fontSize: _size.width / 16.5,
+            fontSize: _size.width / 16.0,
             fontWeight: FontWeight.w500,
             color: ThemeProvider.of(context).brightness == Brightness.dark
                 ? kLightPrimaryColor
-                : Colors.blueAccent.shade400,
+                : Colors.black,
             fontFamily: 'Lobster',
           ),
         ),
@@ -36,7 +36,7 @@ class _ChatPageState extends State<ChatPage> {
           GestureDetector(
             child: Icon(
               Feather.search,
-              size: _size.width / 15.6,
+              size: _size.width / 15.5,
               color: ThemeProvider.of(context).brightness == Brightness.dark
                   ? kLightPrimaryColor
                   : kDarkPrimaryColor,
@@ -47,8 +47,8 @@ class _ChatPageState extends State<ChatPage> {
           ),
           IconButton(
             icon: Icon(
-              Feather.plus_square,
-              size: _size.width / 15.6,
+              Feather.plus_circle,
+              size: _size.width / 15.5,
               color: ThemeProvider.of(context).brightness == Brightness.dark
                   ? kLightPrimaryColor
                   : kDarkPrimaryColor,

@@ -12,7 +12,7 @@ class Navigation extends StatefulWidget {
   State<StatefulWidget> createState() => _NavigationState();
 }
 
-class _NavigationState extends State<Navigation> with WidgetsBindingObserver {
+class _NavigationState extends State<Navigation> {
   int currentPage = 0;
   var _pages = [
     ChatPage(),
@@ -22,14 +22,6 @@ class _NavigationState extends State<Navigation> with WidgetsBindingObserver {
   ];
   @override
   void initState() {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-    ));
-    WidgetsBinding.instance.addObserver(this);
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitDown,
-      DeviceOrientation.portraitUp,
-    ]);
     super.initState();
   }
 
@@ -46,7 +38,6 @@ class _NavigationState extends State<Navigation> with WidgetsBindingObserver {
               currentPage = i;
             });
           },
-          elevation: 1.5,
           type: BottomNavigationBarType.fixed,
           iconSize: _size.width / 14.75,
           showSelectedLabels: false,
