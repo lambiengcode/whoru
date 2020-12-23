@@ -24,8 +24,8 @@ class _ChatPageState extends State<ChatPage> {
         title: Text(
           "WhoRU",
           style: TextStyle(
-            fontSize: _size.width / 16.0,
-            fontWeight: FontWeight.w500,
+            fontSize: _size.width / 16.2,
+            fontWeight: FontWeight.w400,
             color: ThemeProvider.of(context).brightness == Brightness.dark
                 ? kLightPrimaryColor
                 : Colors.black,
@@ -36,7 +36,7 @@ class _ChatPageState extends State<ChatPage> {
           GestureDetector(
             child: Icon(
               Feather.search,
-              size: _size.width / 15.5,
+              size: _size.width / 15.2,
               color: ThemeProvider.of(context).brightness == Brightness.dark
                   ? kLightPrimaryColor
                   : kDarkPrimaryColor,
@@ -48,15 +48,40 @@ class _ChatPageState extends State<ChatPage> {
           IconButton(
             icon: Icon(
               Feather.plus_circle,
-              size: _size.width / 15.5,
+              size: _size.width / 15.2,
               color: ThemeProvider.of(context).brightness == Brightness.dark
                   ? kLightPrimaryColor
                   : kDarkPrimaryColor,
             ),
             onPressed: () {},
           ),
+          StreamBuilder(
+            stream: Firestore.instance
+                .collection('users')
+                .where('id', isEqualTo: user.uid)
+                .snapshots(),
+            builder:
+                (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              if (!snapshot.hasData) {
+                return Container();
+              }
+
+              String urlToImage = snapshot.data.documents[0]['urlToImage'];
+
+              return CircleAvatar(
+                radius: _size.width / 18.0,
+                backgroundColor: Colors.grey.shade200,
+                child: CircleAvatar(
+                  backgroundImage: urlToImage == ''
+                      ? AssetImage('images/logo.png')
+                      : NetworkImage(urlToImage),
+                  radius: 16.0,
+                ),
+              );
+            },
+          ),
           SizedBox(
-            width: 4.0,
+            width: 6.0,
           ),
         ],
       ),

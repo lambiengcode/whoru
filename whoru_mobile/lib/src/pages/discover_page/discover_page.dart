@@ -59,8 +59,8 @@ class _DiscoverPageState extends State<DiscoverPage>
                 String urlToImage = snapshot.data.documents[0]['urlToImage'];
 
                 return CircleAvatar(
-                  radius: 17.5,
-                  backgroundColor: Colors.grey.shade300,
+                  radius: _size.width / 18.0,
+                  backgroundColor: Colors.grey.shade200,
                   child: CircleAvatar(
                     backgroundImage: urlToImage == ''
                         ? AssetImage('images/logo.png')
@@ -77,23 +77,34 @@ class _DiscoverPageState extends State<DiscoverPage>
               child: GestureDetector(
                 onTap: () {},
                 child: Container(
-                  height: 40.0,
+                  height: 42.0,
                   decoration: BoxDecoration(
-                    color: Colors.grey.shade200,
+                    color: Colors.grey.shade100,
                     borderRadius: BorderRadius.circular(
                       30.0,
                     ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: ThemeProvider.of(context).brightness ==
+                                Brightness.dark
+                            ? Colors.white.withOpacity(.04)
+                            : Color(0xFFABBAD5),
+                        spreadRadius: .5,
+                        blurRadius: 1.25,
+                        offset: Offset(0, 1.5), // changes position of shadow
+                      ),
+                    ],
                   ),
                   padding: EdgeInsets.only(
-                    left: 12.0,
+                    left: 16.0,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Icon(
                         Feather.search,
-                        size: 18.0,
-                        color: Colors.grey.shade700,
+                        size: _size.width / 22.0,
+                        color: Colors.grey,
                       ),
                       SizedBox(
                         width: 12.0,
@@ -101,8 +112,8 @@ class _DiscoverPageState extends State<DiscoverPage>
                       Text(
                         'Search',
                         style: TextStyle(
-                          color: Colors.grey.shade600,
-                          fontSize: 15.0,
+                          color: Colors.grey,
+                          fontSize: _size.width / 25.0,
                           fontWeight: FontWeight.w400,
                         ),
                       ),

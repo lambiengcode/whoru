@@ -1,7 +1,11 @@
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:provider/provider.dart';
 import 'package:whoru_mobile/src/models/discover.dart';
+import 'package:whoru_mobile/src/models/user.dart';
+import 'package:whoru_mobile/src/services/algorithm_stranger.dart';
 import 'package:whoru_mobile/src/utils/constants.dart';
 
 class Discover extends StatefulWidget {
@@ -19,9 +23,11 @@ class _DiscoverState extends State<Discover> {
         Expanded(
           flex: 4,
           child: Container(
-            padding: EdgeInsets.symmetric(
-              horizontal: 10.0,
-              vertical: 20.0,
+            padding: EdgeInsets.fromLTRB(
+              12.0,
+              24.0,
+              12.0,
+              .0,
             ),
             decoration: BoxDecoration(
               color: Colors.white,
@@ -119,7 +125,7 @@ class _DiscoverState extends State<Discover> {
                     ),
                     _buildActionChat(
                       context,
-                      Feather.pie_chart,
+                      Feather.search,
                     ),
                   ],
                 ),
@@ -133,16 +139,16 @@ class _DiscoverState extends State<Discover> {
                     ),
                     _buildActionCall(
                       context,
-                      Feather.video,
-                      Colors.blueAccent,
+                      Feather.message_square,
+                      Colors.blueAccent.shade400,
                     ),
                     SizedBox(
-                      width: 8.0,
+                      width: 10.0,
                     ),
                     _buildActionCall(
                       context,
-                      Feather.message_square,
-                      Colors.deepPurple.shade700,
+                      Feather.video,
+                      Colors.deepPurple.shade600,
                     ),
                   ],
                 ),
@@ -206,30 +212,76 @@ Widget _buildActionChat(context, icon) {
 }
 
 Widget _buildActionCall(context, icon, color) {
+  final user = Provider.of<User>(context);
   return Expanded(
-    child: Container(
-      height: 45.0,
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(
-          4.0,
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: ThemeProvider.of(context).brightness == Brightness.dark
-                ? Colors.white.withOpacity(.04)
-                : Color(0xFFABBAD5),
-            spreadRadius: 1.0,
-            blurRadius: 1.25,
-            offset: Offset(0, 2.0), // changes position of shadow
+    child: StreamBuilder(
+      stream: Firestore.instance
+          .collection('users')
+          .where('id', isEqualTo: user.uid)
+          .snapshots(),
+      builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        if (!snapshot.hasData) {
+          return Container(
+            height: 45.0,
+            decoration: BoxDecoration(
+              color: color,
+              borderRadius: BorderRadius.circular(
+                4.0,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: ThemeProvider.of(context).brightness == Brightness.dark
+                      ? Colors.white.withOpacity(.04)
+                      : Color(0xFFABBAD5),
+                  spreadRadius: 1.0,
+                  blurRadius: 1.25,
+                  offset: Offset(0, 2.0), // changes position of shadow
+                ),
+              ],
+            ),
+            child: Icon(
+              icon,
+              color: Colors.white,
+              size: 20.0,
+            ),
+          );
+        }
+
+        return GestureDetector(
+          onTap: () => Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => MatchRoom(
+                index: snapshot.data.documents[0].reference,
+                roomID: snapshot.data.documents[0]['room'],
+              ),
+            ),
           ),
-        ],
-      ),
-      child: Icon(
-        icon,
-        color: Colors.white,
-        size: 20.0,
-      ),
+          child: Container(
+            height: 45.0,
+            decoration: BoxDecoration(
+              color: color,
+              borderRadius: BorderRadius.circular(
+                4.0,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: ThemeProvider.of(context).brightness == Brightness.dark
+                      ? Colors.white.withOpacity(.04)
+                      : Color(0xFFABBAD5),
+                  spreadRadius: 1.0,
+                  blurRadius: 1.25,
+                  offset: Offset(0, 2.0), // changes position of shadow
+                ),
+              ],
+            ),
+            child: Icon(
+              icon,
+              color: Colors.white,
+              size: 20.0,
+            ),
+          ),
+        );
+      },
     ),
   );
 }

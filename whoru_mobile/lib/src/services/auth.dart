@@ -106,7 +106,7 @@ class AuthService {
       'image': '',
       'username': email.toString().substring(0, email.toString().length - 10),
       'publishAt': DateTime.now(),
-      'hagtag': '#Talk',
+      'hashtag': '#Talk',
       'dark': true,
       'male': true,
       'location': 'Hồ Chí Minh',

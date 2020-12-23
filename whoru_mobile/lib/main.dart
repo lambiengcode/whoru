@@ -6,7 +6,6 @@ import 'package:get/get_navigation/src/routes/transitions_type.dart';
 import 'package:provider/provider.dart';
 import 'package:whoru_mobile/src/app.dart';
 import 'package:whoru_mobile/src/models/user.dart';
-import 'package:whoru_mobile/src/pages/home_page/home_page.dart';
 import 'package:whoru_mobile/src/services/auth.dart';
 import 'package:whoru_mobile/src/utils/constants.dart';
 
@@ -35,12 +34,6 @@ class MyApp extends StatelessWidget {
               locale: Locale('vi', 'VN'),
               getPages: [
                 GetPage(name: '/root', page: () => App()),
-                GetPage(
-                  name: '/home',
-                  page: () => HomePage(),
-                  transition: Transition.leftToRightWithFade,
-                  transitionDuration: Duration(milliseconds: 200),
-                ),
               ],
             );
           },

@@ -54,7 +54,7 @@ class _NavigationState extends State<Navigation> {
             BottomNavigationBarItem(
                 icon: Icon(Feather.home), title: Text("Message")),
             BottomNavigationBarItem(
-                icon: Icon(Feather.feather), title: Text("Feed")),
+                icon: Icon(Feather.activity), title: Text("Feed")),
             BottomNavigationBarItem(
                 icon: Icon(Feather.search), title: Text("Discover")),
             BottomNavigationBarItem(
