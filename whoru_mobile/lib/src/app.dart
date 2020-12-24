@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:whoru_mobile/src/models/user.dart';
-import 'package:whoru_mobile/src/pages/auth/auth_page.dart';
-import 'package:whoru_mobile/src/pages/navigation/navigation.dart';
+import 'package:whoru/src/models/user.dart';
+import 'package:whoru/src/pages/auth/auth_page.dart';
+import 'package:whoru/src/pages/navigation/navigation.dart';
 
 class App extends StatefulWidget {
   @override

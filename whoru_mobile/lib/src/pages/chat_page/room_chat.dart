@@ -8,12 +8,12 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:whoru_mobile/src/animation/fade_animation.dart';
-import 'package:whoru_mobile/src/models/user.dart';
-import 'package:whoru_mobile/src/pages/chat_page/widgets/build_chat_line.dart';
-import 'package:whoru_mobile/src/pages/chat_page/widgets/chat_input.dart';
-import 'package:whoru_mobile/src/services/algorithm_stranger.dart';
-import 'package:whoru_mobile/src/widgets/photo_viewer.dart';
+import 'package:whoru/src/animation/fade_animation.dart';
+import 'package:whoru/src/models/user.dart';
+import 'package:whoru/src/pages/chat_page/widgets/build_chat_line.dart';
+import 'package:whoru/src/pages/chat_page/widgets/chat_input.dart';
+import 'package:whoru/src/services/algorithm_stranger.dart';
+import 'package:whoru/src/widgets/photo_viewer.dart';
 
 class RoomChat extends StatefulWidget {
   final String name;

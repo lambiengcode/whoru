@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:whoru_mobile/src/pages/auth/login_page.dart';
-import 'package:whoru_mobile/src/pages/auth/register_page.dart';
+import 'package:whoru/src/pages/auth/login_page.dart';
+import 'package:whoru/src/pages/auth/register_page.dart';
 
 class AuthenticatePage extends StatefulWidget {
   @override

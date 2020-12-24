@@ -1,4 +1,4 @@
-name: whoru_mobile
+name: whoru
 description: Whoru Project - lambiengcode
 
 # The following line prevents the package from being accidentally published to
@@ -33,7 +33,7 @@ dependencies:
   intl: ^0.16.1
   firebase_auth:
   firebase_storage:
-  firebase_messaging:
+  # firebase_messaging:
   cloud_firestore: ^0.13.7
   cloud_functions:
   flutter_screenutil: ^4.0.2+1

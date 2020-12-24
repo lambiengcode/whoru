@@ -1,6 +1,6 @@
-# whoru_mobile
+# whoru
 
-Whoru Project - lambiengcode
+A new Flutter application.
 
 ## Getting Started
 

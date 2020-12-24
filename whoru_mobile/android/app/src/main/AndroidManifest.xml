@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.lambiengcode.whoru_mobile">
+    package="com.lambiengcode.whoru">
    <application
-        android:label="whoru_mobile"
+        android:label="whoru"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

@@ -12,9 +12,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
-import 'package:whoru_mobile/src/models/menu_item.dart';
-import 'package:whoru_mobile/src/models/user.dart';
-import 'package:whoru_mobile/src/utils/constants.dart';
+import 'package:whoru/src/models/menu_item.dart';
+import 'package:whoru/src/models/user.dart';
+import 'package:whoru/src/utils/constants.dart';
 
 class ChatInput extends StatefulWidget {
   final String roomID;

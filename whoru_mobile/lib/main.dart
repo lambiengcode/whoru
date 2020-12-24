@@ -4,10 +4,10 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
 import 'package:provider/provider.dart';
-import 'package:whoru_mobile/src/app.dart';
-import 'package:whoru_mobile/src/models/user.dart';
-import 'package:whoru_mobile/src/services/auth.dart';
-import 'package:whoru_mobile/src/utils/constants.dart';
+import 'package:whoru/src/app.dart';
+import 'package:whoru/src/models/user.dart';
+import 'package:whoru/src/services/auth.dart';
+import 'package:whoru/src/utils/constants.dart';
 
 void main() {
   // For play billing library 2.0 on Android, it is mandatory to call

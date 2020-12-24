@@ -1,4 +1,4 @@
-package com.lambiengcode.whoru_mobile
+package com.lambiengcode.whoru
 
 import io.flutter.embedding.android.FlutterActivity
 

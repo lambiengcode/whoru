@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:whoru_mobile/src/animation/fade_animation.dart';
-import 'package:whoru_mobile/src/services/auth.dart';
-import 'package:whoru_mobile/src/widgets/loading.dart';
+import 'package:whoru/src/animation/fade_animation.dart';
+import 'package:whoru/src/services/auth.dart';
+import 'package:whoru/src/widgets/loading.dart';
 
 class LoginPage extends StatefulWidget {
   final VoidCallback toggleView;

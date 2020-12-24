@@ -1,11 +1,11 @@
 {
-    "name": "whoru_mobile",
-    "short_name": "whoru_mobile",
+    "name": "whoru",
+    "short_name": "whoru",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Whoru Project - lambiengcode",
+    "description": "A new Flutter application.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

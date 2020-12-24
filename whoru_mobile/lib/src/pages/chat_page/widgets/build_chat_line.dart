@@ -1,9 +1,9 @@
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:whoru_mobile/src/utils/constants.dart';
-import 'package:whoru_mobile/src/widgets/cached_image.dart';
-import 'package:whoru_mobile/src/widgets/photo_viewer.dart';
+import 'package:whoru/src/utils/constants.dart';
+import 'package:whoru/src/widgets/cached_image.dart';
+import 'package:whoru/src/widgets/photo_viewer.dart';
 
 class BuildChatLine extends StatefulWidget {
   final String message;

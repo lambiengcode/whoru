@@ -3,9 +3,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:provider/provider.dart';
-import 'package:whoru_mobile/src/models/user.dart';
-import 'package:whoru_mobile/src/pages/discover_page/widgets/discover.dart';
-import 'package:whoru_mobile/src/utils/constants.dart';
+import 'package:whoru/src/models/user.dart';
+import 'package:whoru/src/pages/discover_page/widgets/discover.dart';
+import 'package:whoru/src/utils/constants.dart';
 
 class DiscoverPage extends StatefulWidget {
   @override

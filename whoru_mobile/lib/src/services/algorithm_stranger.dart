@@ -2,9 +2,9 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:whoru_mobile/src/models/user.dart';
-import 'package:whoru_mobile/src/pages/chat_page/room_chat.dart';
-import 'package:whoru_mobile/src/widgets/loading.dart';
+import 'package:whoru/src/models/user.dart';
+import 'package:whoru/src/pages/chat_page/room_chat.dart';
+import 'package:whoru/src/widgets/loading.dart';
 
 class MatchRoom extends StatefulWidget {
   final String roomID;
