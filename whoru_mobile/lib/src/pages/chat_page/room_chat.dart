@@ -336,6 +336,7 @@ class _RoomChatState extends State<RoomChat> {
         elevation: 2.5,
       ),
       body: Container(
+        color: Colors.grey.shade100,
         child: StreamBuilder(
           stream: Firestore.instance
               .collection('chatrooms')
@@ -382,7 +383,7 @@ class _RoomChatState extends State<RoomChat> {
               children: <Widget>[
                 Expanded(
                   child: FadeAnimation(
-                    1.0,
+                    .025,
                     Container(
                       alignment: Alignment.topCenter,
                       padding: const EdgeInsets.only(

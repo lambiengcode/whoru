@@ -446,7 +446,10 @@ Widget _buildActionChat(
   void showCustomBottomSheet(hashtag, index) {
     showModalBottomSheet(
       shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(8.0))),
+        borderRadius: BorderRadius.all(
+          Radius.circular(8.0),
+        ),
+      ),
       isScrollControlled: true,
       context: context,
       builder: (context) {

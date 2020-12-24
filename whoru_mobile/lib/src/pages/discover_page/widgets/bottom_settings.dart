@@ -48,7 +48,11 @@ class _BottomSettingsState extends State<BottomSettings> {
     return Container(
       decoration: BoxDecoration(
         color: Colors.grey.shade100,
-        borderRadius: BorderRadius.vertical(top: Radius.circular(8.0)),
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(
+            8.0,
+          ),
+        ),
       ),
       child: SingleChildScrollView(
         child: Column(
