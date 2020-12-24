@@ -182,9 +182,7 @@ class _MatchRoomState extends State<MatchRoom> {
         'name1': '',
         'name2': '',
         'range': range,
-        'color': '4282557941',
-        'name1': '',
-        'name2': '',
+        'color': Colors.blueAccent.value.toString(),
         'publish1': DateTime.now(),
         'publish2': DateTime.now(),
       });

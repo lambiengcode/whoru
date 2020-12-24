@@ -53,7 +53,7 @@ class _NavigationState extends State<Navigation> {
                   : Colors.black,
           items: [
             BottomNavigationBarItem(
-                icon: Icon(Feather.mail), title: Text("Message")),
+                icon: Icon(Feather.home), title: Text("Message")),
             BottomNavigationBarItem(
                 icon: Icon(Feather.trending_up), title: Text("Activity")),
             BottomNavigationBarItem(

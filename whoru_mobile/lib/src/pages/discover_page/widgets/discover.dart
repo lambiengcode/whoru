@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:whoru/src/models/discover.dart';
 import 'package:whoru/src/models/user.dart';
 import 'package:whoru/src/pages/discover_page/widgets/bottom_settings.dart';
+import 'package:whoru/src/pages/discover_page/widgets/history_page.dart';
 import 'package:whoru/src/services/algorithm_stranger.dart';
 import 'package:whoru/src/utils/constants.dart';
 
@@ -179,6 +180,7 @@ Widget _buildContainerDefault(context) {
                     ),
                     _buildActionCall(
                       context,
+                      'chat',
                       Feather.message_square,
                       Colors.blueAccent.shade400,
                       null,
@@ -190,6 +192,7 @@ Widget _buildContainerDefault(context) {
                     ),
                     _buildActionCall(
                       context,
+                      'video',
                       Feather.video,
                       Colors.deepPurple.shade600,
                       null,
@@ -369,19 +372,33 @@ Widget _buildContainerDone(context, index, DocumentSnapshot info) {
                     ),
                     _buildActionCall(
                       context,
+                      'chat',
                       Feather.message_square,
-                      Colors.blueAccent.shade400,
+                      Color(0xFF4D648D),
                       index,
                       info,
                       true,
                     ),
                     SizedBox(
-                      width: 10.0,
+                      width: 8.0,
                     ),
                     _buildActionCall(
                       context,
+                      'call',
+                      Feather.phone_call,
+                      Color(0xFF50C878),
+                      index,
+                      info,
+                      true,
+                    ),
+                    SizedBox(
+                      width: 8.0,
+                    ),
+                    _buildActionCall(
+                      context,
+                      'video',
                       Feather.video,
-                      Colors.deepPurple.shade600,
+                      Colors.blueAccent,
                       index,
                       info,
                       true,
@@ -434,7 +451,7 @@ Widget _buildActionChat(
       context: context,
       builder: (context) {
         return BottomSettings(
-          hashtag: hashtag,
+          info: info,
           index: index,
         );
       },
@@ -450,6 +467,14 @@ Widget _buildActionChat(
               showCustomBottomSheet(info['hashtag'], index);
               break;
             case 'history':
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => HistoryPage(
+                    index: index,
+                    info: info,
+                  ),
+                ),
+              );
               break;
             case 'password':
               break;
@@ -490,6 +515,7 @@ Widget _buildActionChat(
 
 Widget _buildActionCall(
   context,
+  title,
   icon,
   color,
   index,
@@ -497,65 +523,51 @@ Widget _buildActionCall(
   done,
 ) {
   return Expanded(
-    child: done
-        ? GestureDetector(
-            onTap: () => Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => MatchRoom(
-                  index: index,
-                  roomID: info['room'],
-                ),
-              ),
-            ),
-            child: Container(
-              height: 45.0,
-              decoration: BoxDecoration(
-                color: color,
-                borderRadius: BorderRadius.circular(
-                  4.0,
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color:
-                        ThemeProvider.of(context).brightness == Brightness.dark
-                            ? Colors.white.withOpacity(.04)
-                            : Color(0xFFABBAD5),
-                    spreadRadius: 1.0,
-                    blurRadius: 1.25,
-                    offset: Offset(0, 2.0), // changes position of shadow
+    child: GestureDetector(
+      onTap: () {
+        if (done) {
+          switch (title) {
+            case 'chat':
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => MatchRoom(
+                    index: index,
+                    roomID: info['room'],
                   ),
-                ],
-              ),
-              child: Icon(
-                icon,
-                color: Colors.white,
-                size: 20.0,
-              ),
-            ),
-          )
-        : Container(
-            height: 45.0,
-            decoration: BoxDecoration(
-              color: color,
-              borderRadius: BorderRadius.circular(
-                4.0,
-              ),
-              boxShadow: [
-                BoxShadow(
-                  color: ThemeProvider.of(context).brightness == Brightness.dark
-                      ? Colors.white.withOpacity(.04)
-                      : Color(0xFFABBAD5),
-                  spreadRadius: 1.0,
-                  blurRadius: 1.25,
-                  offset: Offset(0, 2.0), // changes position of shadow
                 ),
-              ],
-            ),
-            child: Icon(
-              icon,
-              color: Colors.white,
-              size: 20.0,
-            ),
+              );
+              break;
+            case 'video':
+              break;
+            default:
+              break;
+          }
+        }
+      },
+      child: Container(
+        height: 45.0,
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(
+            4.0,
           ),
+          boxShadow: [
+            BoxShadow(
+              color: ThemeProvider.of(context).brightness == Brightness.dark
+                  ? Colors.white.withOpacity(.04)
+                  : Color(0xFFABBAD5),
+              spreadRadius: 1.0,
+              blurRadius: 1.25,
+              offset: Offset(0, 2.0), // changes position of shadow
+            ),
+          ],
+        ),
+        child: Icon(
+          icon,
+          color: Colors.white,
+          size: 20.0,
+        ),
+      ),
+    ),
   );
 }

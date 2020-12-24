@@ -5,8 +5,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:whoru/src/animation/fade_animation.dart';
 import 'package:whoru/src/models/user.dart';
@@ -144,7 +142,7 @@ class _RoomChatState extends State<RoomChat> {
                             style: TextStyle(
                               fontSize: sizeWidth / 32.0,
                               fontWeight: FontWeight.w600,
-                              color: Colors.grey.shade600,
+                              color: Color(0xFF009D00),
                             ),
                           )
                         ],
